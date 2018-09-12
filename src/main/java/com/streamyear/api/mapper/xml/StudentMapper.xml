@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.streamyear.api.mapper.StudentMapper" >
+
+    <select id="listByName"  parameterType="java.lang.String"  resultType="Student">
+        SELECT * FROM student WHERE name LIKE concat(#{name},'%')
+    </select>
+
+</mapper>
