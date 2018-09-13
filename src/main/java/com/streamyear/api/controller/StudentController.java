@@ -1,6 +1,7 @@
 package com.streamyear.api.controller;
 
 import com.streamyear.api.pojo.Student;
+import com.streamyear.api.pojo.User;
 import com.streamyear.api.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,11 @@ public class StudentController {
     public List<Student> listStudentByName(){
         List<Student> result = studentService.listStudentByName("小王");
         return result;
+    }
+
+    @RequestMapping("user")
+    public User listUser(){
+        return studentService.listUser();
     }
 
     @RequestMapping("log")
