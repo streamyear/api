@@ -27,7 +27,8 @@ public class StudentController {
 
     @RequestMapping("user")
     public User listUser(){
-        return studentService.listUser();
+        User user = studentService.listUser();
+        return user;
     }
 
     @RequestMapping("log")
