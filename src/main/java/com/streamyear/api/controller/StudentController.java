@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,8 @@ public class StudentController {
     }
 
     @RequestMapping("user")
-    public User listUser(){
+    public User listUser(Date date){
+        System.out.println(date);
         User user = studentService.listUser();
         return user;
     }
