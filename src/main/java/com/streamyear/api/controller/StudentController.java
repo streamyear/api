@@ -4,8 +4,8 @@ import com.streamyear.api.consumer.DemoMqContent;
 import com.streamyear.api.pojo.Student;
 import com.streamyear.api.pojo.User;
 import com.streamyear.api.service.StudentService;
+import com.streamyear.api.util.RedisUtil;
 import io.github.rhwayfun.springboot.rocketmq.starter.common.DefaultRocketMqProducer;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +26,9 @@ public class StudentController {
 
     @Autowired
     private DefaultRocketMqProducer producer;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @RequestMapping("listStudentByName")
     public List<Student> listStudentByName(){
