@@ -49,8 +49,9 @@ public class StudentController {
     }
 
     @RequestMapping("mq")
-    public void mqTest() throws Exception {
-        amqpTemplate.convertAndSend("streamyear", "我是小石头!!!!");
+    public String mqTest() throws Exception {
+        amqpTemplate.convertAndSend("sendSMS", "manager", "么么么么木");
         System.out.println("发送成功!");
+        return "ok";
     }
 }
