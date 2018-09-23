@@ -1,4 +1,4 @@
-package com.streamyear.api.util;
+package com.streamyear.api.common.util;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
