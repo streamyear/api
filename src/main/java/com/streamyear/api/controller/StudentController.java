@@ -1,9 +1,11 @@
 package com.streamyear.api.controller;
 
+import com.streamyear.api.common.service.QuartzUtils;
+import com.streamyear.api.common.service.RedisUtil;
+import com.streamyear.api.job.TestJob;
 import com.streamyear.api.pojo.Student;
 import com.streamyear.api.pojo.User;
 import com.streamyear.api.service.StudentService;
-import com.streamyear.api.util.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -24,6 +26,9 @@ public class StudentController {
 
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private QuartzUtils quartzUtils;
 
     @Autowired
     private AmqpTemplate amqpTemplate;
@@ -52,6 +57,13 @@ public class StudentController {
     public String mqTest() throws Exception {
         amqpTemplate.convertAndSend("sendSMS", "manager", "么么么么木");
         System.out.println("发送成功!");
+        return "ok";
+    }
+
+
+    @RequestMapping("quartz")
+    public String quartz() throws Exception {
+        quartzUtils.addJob(TestJob.class,"0/5 * * * * ?");
         return "ok";
     }
 }
